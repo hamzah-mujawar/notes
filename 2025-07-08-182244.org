@@ -1,0 +1,11 @@
+* Definitions
+[2025-07-08 Tue 18:22] 
+- Cyberwarfare: Unlike cyberattacks, which are isolated incidents, cyberwarfare is a tactic
+ employed by nation-state sponsored actors; It is a deliberate attack which employs the
+ discovery of digital and cyber-physical vulnerabilities to ultimately affect the target
+ nation-state's economic and operational infrastructures. The function of cyberwarfare has changed
+ from the capture of physical territory to the practice of subterfuge, sabotage, and impairment.
+ The Return on Investment on cyberwarfare has attracted countries to build up their cyberwarfare
+ arsenal focusing on APTs (Advance Persistent Threats) - sophisticated, continuous, and destructive.
+- APT (Advance Persistent Threats)
+- SOPs (Standard Operating Procedures)

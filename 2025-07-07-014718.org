@@ -1,0 +1,46 @@
+* Chess
+[2025-07-07 Mon 01:47] 
+** Important symbols
+x captures
+O-O castle on kingside
+O-O-O castle on queenside
+/+/ check
+/++/ double check
+/#/ checkmate
+/!/ good move
+/!!/ excellent move
+/?/ mistake
+/??/ blunder
+- Extra information is needed when we have for example two rooks on the same file:
+  The we add the rank of the capturing rook i.e R7xd6 or R1xd6.
+  However, if they are on different files but attacking the same piece it will be i.e. Rexg4 or Rgxg4
+
+** The Kingside attack
+*** Game 1 *von Scheve - Teichmann*
+- It is important to get pieces out quickly off the back rank and into play. A good way of doing that is to release two pieces at one stroke and this can be done by
+  advancing one of the centre pawns.
+  * 1 e4 *
+    - This is an excellent move as we move a pawn into the centre and opens lines for the queen and the bishop. The next move if allowed should be 2 d4, this will allow
+      white to control the four square on the fifth rank, c5, d5, e5 and f5, and prevent Black from placing any of their pieces on those important squares.
+    - Black should avoid meaningless moves such as 1 ...h6 or 1 ...a6 as these do nothing toward developing the pieces, nor do they interfere with white's centre.
+      /Black must dispute the centre/
+    - This is cuz pieces on the centre enjoy the greatest freedom of action. Occupation of the centre means control of most of the valuable territory. It leaves less room
+      for the enemy's pieces.
+  * 1 ... e5 *
+    - Black plays e5 for his share of the centre.
+  * 2 Nf3 *
+    - This is the best move on the board, this builds tempo as black must save his pawn before he does anything else.
+    - The knight develops to the centre, and exerts pressure on two important squares, e5 and d4.
+    - *develop knights before bishops*
+    - Black has a few moves to decide between 2 ...f6, 2 ...qf6, 2 ...qe7, 2 ...bd6, 2 ...d6 and 2 ...nc6. Which one is the best? They all defend the pawn right?
+    - However lets have a look more closely:
+      - f6 is bad cuz we block the knight and the queen path
+      - qf6 is bad since we block the knight again and we move the queen too early
+      - qe7 blocks the bishop
+      - bd6 blocks the d pawn which prevents the bishop from developing
+      - 2 ...d6 isn't too bad but we limit the range of f8 bishop
+      - 2 ...nc6 is the best move.
+- Two golden rules:
+  Place each piece as quickly as possible on the square where it is most effective
+  Move each piece only once in the opening
+ 

@@ -1,0 +1,44 @@
+* Hannibal at the Gates: Cyberwarfare & the Solarwinds Sunburst Hack | Pratim Datta | JITTC [cite:@HannibalGatesCyberwarfare]
+[2025-07-08 Tue 18:09]
+** Raw Notes
+- SolarWinds was not just a cyberattack but a state-sponsored cyberwarfare operation exploiting
+  systemic vulnerabilities exposed by COVID-19 digitisation.
+*** Datta's Arguments:
+- *Organisational Failure > Technical Flaws*
+  - Datta argues that cybersecurity operational mindset needs to shift from technical solutions to
+    re-engineering the organisational processes and cultures to stay ahead of state-sponsored APTs.
+  - He compares the Sunburst hack to Hannibal's victory to a more sophisticated Roman army in the
+    battle of Cannae [cite:@samuelsRealityCannae1990], where a state-actor can cripple a larger foe by leveraging existing SOPs
+    (Standard Operating Procedures). He also points out the reactive rather than proactive operational
+    cultures of "don't fix unless broken" "wait, watch, react" ideology.
+- *How SOPs (Standard Operating Procedures) are utilised by state-sponsored adversaries*
+  - Datta provides an example of how a state-sponsored adversary can exploit SOPs of how GRU, which
+    is Russia's espionage group, who are rumoured to have collaborated with Fancy Bear (APT28), which
+    is an infamous Russian hacker unit, to sabotage Ukrainian artillery positions and destroy corresponding
+    artillery [cite:@volzRussianHackersTracked2016].
+    - Fancy Bear used a combination of remote-access command and control (C2) and Beacon malware
+      to compromise Ukrainian artillery. The Ukrainian military had an arsenal of 122mm D-30 towed
+      howitzers. Yaroslav Sherstuk, a Ukrainian artillery officer, had developed a program called
+      “Попр-Д30.apk” (apk stands for Android Application Package meant for Android operating systems).
+      The APK originally could process targeting data faster and reduce the D-30 howitzer's targeting time
+      from few minutes to 15s.
+    - Using the “Попр-Д30.apk” as a template, Fancy Bear developed X-agent.
+      - X-agent was a malware implant that used a remote access C2 structure with RC4 cryptographic
+	variant and a 50-base key. Fancy Bear distributed the malware APK variant via social media
+	and military forums.
+      - Between 2014 and 2016, the Ukrainian armed forces downloaded the malware “Попр-Д30.apk”. The
+	APK carried a C2 Beacon, a malicious payload that would remotely communicate with the malware
+	command and control from an infected Android device being used in the field.
+    - The malware infected devices remotely communicating to Fancy Bear's remote servers compromised
+      the D-30 artillery locations, the battery strength, and movements, allowing Russian strikes
+      on Ukrainian artillery, resulting in 20% D-30 howitzers lost in combat.
+  - Fancy Bear's success with remote access malware and a Beacon payload became a template that alleged
+    state-sponsored actors that was followed in the Sunburst trojanised malware cyberhack.    
+- *The Sunburst [Solorigate] UNC2452 cyberattack*
+  - The Sunburst hack is a case-in-point of leveraging routine processes in the software supply chain
+    to adversely compromise multiple targets [cite:@SolarWindsSupplyChain].
+*** Datta's Analysis of SolarWinds
+- The SolarWinds Orion business software updates were trojanised to distribute malware called SUNBURST, this was discovered by FireEye [cite:@SolarWindsSupplyChain].
+- Datta classifies the SolarWinds attack as not just a cyberattack but a cyberwarfare campaign. He classifies this as such as it was operating on many fronts and over a sustained period of time
+  rather than just a single incident. Datta goes on to say that SolarWinds didn't use a shock-and-awe attack like a Denial of Service (DoS), but instead capitalised on routines, sub-optimal processes,
+  to be passively pulled by SolarWinds Orion client systems, remain dormant, sniff, and activate on proper target discovery, and then disguise and move laterally across the system. 
