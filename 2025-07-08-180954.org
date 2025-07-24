@@ -79,4 +79,18 @@
 - Around, March-May 2020, the perpetrators set up an entire valid digital signature and encryption
   infrastructure to spoof authentication of their malware and make it look official, certified,
   and legitimate.
-- Using digital signatures, the perpetrators 
+- Using digital signatures, the perpetrators targeted computers running Microsoft Windows, creating
+  multiple trojanised, Digitally Signed, innocuous-looking compressed components within the Windows
+  Installer Patch files as a Solarwinds Orion software plug-in.
+- The plug-in update file contained a trojanised malware compressed DLL (dynamic link library) component
+  file called /SolarWinds.Orion.Core.BusinessLayer.dll/, is cleverly hidden within a "msp" (Microsoft patch),
+  and is posted on the Solarwinds update website.
+**** Reconnoitring the flanks
+- Several client organisations and industry verticals that regularly visited the SolarWinds update
+  website unknowingly start installing the malicious hiding within a legitimate /SolarWinds.BusinessLayerHost.exe/
+  (a Microsoft Windows executable file).
+- The trojanised malware Sunburst remained dormant for 2 weeks and hid in plain sight to not raise
+  any eyebrows from an out-of-the-ordinary "flaggable" surge in network traffic communications.
+- After a 2-week dormancy, the malware activated and started a multi-stage process:
+  - Sunburst began by running a service in the background computer memory called Teardrop.
+  - 
