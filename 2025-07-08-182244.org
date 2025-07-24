@@ -9,3 +9,5 @@
  arsenal focusing on APTs (Advance Persistent Threats) - sophisticated, continuous, and destructive.
 - APT (Advance Persistent Threats)
 - SOPs (Standard Operating Procedures)
+- Attack vector: The mechanism by which cyber-threats find their way into a network or system.
+- Attack Surface: The amount and area that a cyber-threat can damage via an attack
