@@ -93,4 +93,78 @@
   any eyebrows from an out-of-the-ordinary "flaggable" surge in network traffic communications.
 - After a 2-week dormancy, the malware activated and started a multi-stage process:
   - Sunburst began by running a service in the background computer memory called Teardrop.
-  - 
+  - Teardrop starts a new process thread (e.g. /netsetupsvc.dll) utilising a file called /gracious_truth.jpg/
+    (masquerading as an image file).
+  - The Teardrop service deploys a malicious payload called Cobalt Strike's Beacon malware. Beacon
+    uses popular HTTP, HTTPS, or DNS to hide as legitimate traffic while executing remote commands.
+**** Sabotaging and evading
+1) The malware uses a DGA (Domain Generation Algorithm) to establish a C2 server by resolving a subdomain
+   of avsvmcloud [..].com, creating multiple fully qualified but malicious domain names such as
+   xyz.appsync-api[.]eu-west-1[.]avsvmcloud[.]com
+   - This opened a communication backdoor.
+2) With multiple malicious domains generated along with a command-and-control structure,
+   the DNS entries became formal list of phonebook entries for safe communication, which made remote
+   access by the perpetrators quite easy.
+3) With foresight, the perpetrators even mimicked legitimate hostnames on their C2 servers to avoid
+   suspicions and detection and camouflage themselves.
+   - Sunburst operated like spies, moving laterally and constantly changing positions and credentials
+     within the network. Sunburst also ensured that the credentials used for laterally moving within
+     the network did not match the credentials used for remote access. Much like a spy that changes
+     names, places, and codenames.
+4) Sunburst started communicating with the malicious Command and Control domains.
+   - Sunburst communicates as an API (Application Programming Interface) communications.
+   - An API is an interface that links between multiple programs via certain protocols to share
+     and translate information across many different types of software and architectures.
+5) No cybersecurity flags were raised because Sunburst communications are cleverly disguised to mimic
+   normal Solarwinds API communications from various Solarwinds clients to the enterprise.
+**** Controlling and communicating
+- Sunburst ran a remotely controlled Job Execution Engine that can use the Beacon malware along with
+  a network backdoor.
+- Sunburst could now collect and communicate system and user profile information, change time, run
+  malicious processes, terminate processes by their Process ID (PID), write to files, delete files,
+  access the registry, and even reboot the system.
+- These actions are remotely communicating and controlled by a camouflaged backdoor using HTTP and
+  mimicking normal activity as a part of OIP (Orion Improvement Program) protocol
+- For a perpetrator, being able to control a process is tantamount to being able to stop essential
+  processes from running, including backups, encryptions, and even audits.
+*** Datta's Suggestions for Remediation
+- Datta says, the following, "The Sunburst trojanised cyberattack exemplifies the growing sophistication
+  in state-sponsored cyberattack and the need to treat cybersecurity as an imperative with proactive
+  process reengineering".
+**** Reengineer user process
+- User (including vendor and consumer) errors are the weakest link, regardless of whether the user
+  error is analog or automated (embedded in the operational logic): A Github misconfiguration error
+  error might have been the genesis for the Sunburst hack.
+  - Solarwinds server credentials that were supposed to be assigned as a private repository were
+    instead released as a public repository, setting the stage for an attack.
+- Datta argues that inadvertant misclassfication and release of sensitive information have been a
+  wellspring for malicious actors.
+  - In November 2017, users at Pentagon mistakenly released more than 100GB of classified US Army and
+    NSA (National Security Agency) data, called Red Disk, on a publicly accessible AWS (Amazon Web Services)
+    server.
+  - The information included hashed password and private keys to access Pentagon resources [cite:@ClassifiedPentagonData2017].
+  - UpGuard, a cybersecurity research group, discovered and reported the misplaced information back
+    to the Pentagon and was peremptorily corrected, user errors, without a robust user process in place,
+    can invite nefarious actors an actions.
+**** Reengineer the software supply chain
+- Software has a supply chain.
+- The software supply chain carries data packets and code from vendors to clients with the network
+  as the logistics infrastructure.
+- These data packets and code originates from all across the world, hopping across the world, hoping
+  across nodes and warehouses around the globe.
+- A packet can be hijacked, and malicious code can be injected into a legitimate-looking packet.
+- The ability of the perpetrators to create a digital signatures and certification infrastructure and
+  implant and trojanise a Solarwinds Orion update underlines the need for revising for revising
+  authentication processes and protocols.
+- The new found cyberattack wisdom lies in evasion rather than the shock-and-awe of DoS attacks.
+- APIs are particularly vulnerable as they serve as logistic connectors across various software and systems
+  in the global network.
+- With an ever-spreading software supply chain, code integrity is critical. Therefore, ensuring the
+  integrity of code repositories where vulnerabilities might be disclosed and malicious lookalikes
+  can be injected.
+**** Reengineer using a perpetrator's mindset
+- Datta states that the Sunburst hack highlights the new philosophy of "invade and evade" followed
+  by more sophisticated and encompassing hacks.
+
+
+
