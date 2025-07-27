@@ -165,6 +165,47 @@
 **** Reengineer using a perpetrator's mindset
 - Datta states that the Sunburst hack highlights the new philosophy of "invade and evade" followed
   by more sophisticated and encompassing hacks.
-
+- He highlights the fact that these attacks require patiently waiting to scan the environment,
+  choosing the most  impactful target, attacking the target, and then disappearing by moving
+  laterally across the network, acting like a legitimate source, and hiding in plain sight.
+- The Sunburst malware hid in plain sight, embedding a malware payload inside a Solarwinds Orion
+  update patch and relying on organisational routine patch downloads.
+- Reengineering using a perpetrator's mindset reduces assumptions and obvious traditions.
+  - For example: Solarwinds Orion's recommendation to exclude itself from its clients' anti-virus
+    and EDR monitors, that its clients omit Orion communications from its anti-virus, capitalised
+    on a routinised, albeit, sub-optimal operational culture.
+- Perpetrators leverage organisations' long-held paradigmatic culture that cybersecurity is
+  a black-and-white system. A black-and-white system is based on binary outcomes defined by discrete
+  outcomes defined by discrete outcomes defined by discrete parameters. Cybersecurity operational
+  culture needs to rest on continuous interception and vetting of activities.
+**** Reengineer based on defensive analytics
+- Data and pattern analysis are imperatives in understanding exceptions and suspicious behaviours
+  from within applications and networks.
+- There is a tendency, even a culture of focusing on zero-day exploits.
+- The Sunburst attack was not a zero day exploit, but rather a passive, patient attack without
+  raising suspicion.
+- Zero-day exploits or a zero-day attack happens when perpetrators try to compromise software whose
+  vulnerabilities have yet to be fixed or patched, zero-day exploits are more anticipated and
+  organisations closely monitor any and all type of flaggable behaviour.
+- Datta goes on to say this readiness turns to complacence over time and this is how the Sunburst
+  hack capitalised on time and complacence, using the time to spoof a certification and authentication
+  infrastructure and establishing a C2 center without raising suspicions.
+**** Reengineer the network architecture
+- Due to the mass digitisation due to COVID-19 crisis, organisations hurried to digital transfomation
+  by allowing a variety of unknown BYOD (Bring Your Own Device) into the corporate network.
+- Due to this dynamic and complicated nature, security policy was less granular and more generic
+  based on nebulous privileges, roles, and monitors and based on trust.
+- /Trust-based network architectures/: often rely on perimeter fencing, great for collocated-secure
+  corporate offices but in environments such as Work-From-Home (WFH) are much more complicated to
+  manage.
+- Trust-based networks are simpler to manage but fall prey, as in the case of Sunburst hack, to
+  malware disguised or embedded within a trusted entity.
+- Users may be logging in from a variety of secure and unsecure public networks using a variety of
+  devices, some compromised and some secure.
+- Therefore, managing devices and micro-transactional monitoring are central to building security
+  in a fluid environment with malicious actors.
+- Datta instead focusses on suggesting Zero-Trust network architecture (e.g. Google BeyondCorp initiative)
+  forwards a granular device-level and transactional-level security based on device-specific credentialing,
+  micro-segmentation and micro-privileges for all DAAS (Data, Assets, Application, Services).
 
 
