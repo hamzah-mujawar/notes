@@ -207,5 +207,15 @@
 - Datta instead focusses on suggesting Zero-Trust network architecture (e.g. Google BeyondCorp initiative)
   forwards a granular device-level and transactional-level security based on device-specific credentialing,
   micro-segmentation and micro-privileges for all DAAS (Data, Assets, Application, Services).
-
-
+- Zero-Trust network architecture need to infer and designate trust for every device, not based on
+  historical transactional-level trust, device, and user credentials, but based on dynamic monitoring
+  of managed devices, user credentials, and transactions.
+- Transactional-level monitoring would have flagged Sunburst hack activities trying to create,
+  communicate,and reconfigure any and all DAAS, offering faster response and quicker threat isolation.
+*** Datta's Conclusion
+- The SolarWinds Sunburst hack highlights the need for deliberate process reengineering across
+  the entire software supply chain rather than building siloed fortifications.
+- In an age marked by growing digital connectivity across critical economic and operational
+  infrastructures, securing the borders is more than just a firewall fortification.
+- Instead, cybersecurity oepartional mindset needs to shift from *technical solutions* to
+  *rengineering organisational processes and cultures* to stay ahead of state-sponsored APTs.
