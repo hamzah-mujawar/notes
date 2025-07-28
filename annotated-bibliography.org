@@ -1,0 +1,329 @@
+#+bibliography: /home/pickle/thesis_stuff/PLR_PDF/references.bib
+* Papers relating to policy post-2021
+** Open Source Software Supply Chain Security | Linux Foundation [cite:@OpenSourceSoftware] #SupplyChain #OpenSSF #Pre2021 #PreLog4js
+- *Scope/Purpose:* Open source software supply chain security risks
+- *Type of Source:* White Paper
+- *Methodology:*
+  - *Case study* of high-impact OSS vulnerabilities (e.g., Log4j, Heartbleed)
+  - *Trend Analysis* of supply chain attacks (2015-2019) (pre-dating widespread SBOM adoption) @@comment:need to fact check this widespread comment@@
+  - *Expert Consensus* from Linux Foundation working groups
+- *Key Findings:* Identified key weak points in OSS supply chain:
+  1) Lack of dependency auditing tools
+  2) Insufficient maintainer security training
+  3) No standardised signing practices (pre-Sigstore) @@comment: need to find out what sigstore is@@
+  4) Recommended SBOM and manual audits (later formalised in 2021+ frameworks)
+- *Strengths:*
+  - *Foundational:* Early recognition of OSS supply chain risks (pre-SolarWinds)
+  - *Influential:* The white paper’s themes aligned with later OpenSSF initiatives like *Scorecards* and *Allstar*,
+     reflecting a shared industry focus on dependency and maintainer risks.
+  - *Actionable:* Provides a checklist for dependency management
+- *Weaknesses:*
+  - *Dated:* Lacks post-2020 threat models (e.g., CI/CD compromises)
+  - *Qualitative:* Relies on expert opinion vs. empirical data (no CVE statistical analysis)
+  - *Tooling gaps:* Predates critical tools like Sigstore, SLSA, and GitHub's CodeQL
+** Open Source Security Risk Analysis Report (OSSRA) | Black Duck [cite:@OpenSourceSecurity] #SupplyChain #ZeroTrust
+- *Scope/Purpose:* Open source software supply chain security risks
+- *Type of Source:* Industry Report
+- *Methodology:*
+  - This study analysed 965 commercial code-bases collected during merger and acquisition (M&A) due diligence processes.
+  - Utilised Black Duck Software Composition Analysis (SCA) tools to identify:
+    - Open source components
+    - Known vulnerabilities (via databases like NVD)
+    - License type and conflicts
+    - Development activities (e.g. last commit date)
+  - Provides a snapshot of real-world enterprise software, often in critical points such as merger and acquisition processes.
+- *Key Findings:*
+  1) Prevalence of OSS
+     - 97% of code-bases contain OSS.
+     - OSS made up up 70% of the code in scanned applications
+     - The number of OSS files has tripled since 2020
+  2) Security Risks
+     - 86% of code-bases had known vulnerabilities
+     - 81% had high or critical vulnerabilities.
+     - 8 of the top 10 high-risk vulnerabilities were in jQuery
+     - Many vulnerabilities came through transitive dependencies (64% of components were transitive)
+  3) License Risks
+     - 56% of code-bases had license conflicts
+     - 33% had components with unknown or non-standard licenses
+     - EdTech and Big Data/AI were most affected by compliance issues
+  4) Operational Risks
+     - 90% of code-bases used were >4 years out-of-date.
+     - 91% used components with no development activity in 2+ years
+     - 90% were more than 10 versions behind the current version
+- *Strengths:*
+  1) The report draws from 965 real-world commercial code-bases under active review during high stakes merger and acquisition (M&A), which makes the data
+     more practical
+  2) Use of SCA tools ensure objective and repeatable detection of vulnerabilities, licenses, and outdated components.
+  3) Breaks down risks by sector, helping tailor open source strategies per sector
+  4) Highlights a nuanced and growing issue in software development, often overlooked.
+- *Weaknesses:*
+  1) *Selection Bias*
+     - Since the code-bases were analysed in M&A context, they may be older, more complex, or less maintained than average - potentially skewing
+       risk levels upwards
+     - This could limit generalisation to all software projects, especially greenfield or OSS-native startups.
+  2) *Opaque Statistical Analysis*
+     - The report does not describe in detail:
+       - Statistical tests used
+       - Sampling procedures
+       - Distribution characteristics (e.g., variance, outliers)
+  3) *Black Box Methodology*
+     - The audit tool is proprietary, and methodologies for vulnerability identification or risk scoring (e.g., CVSS usage) are not transparently described.
+  4) *Focus on Detection Over Context*
+     - No deeper analysis of exploit-ability, exploit presence, or actual harm caused by vulnerabilities
+     - Similarly, license risks is measured by presence of conflicts, not litigation or legal action likelihood.
+** Securing the Software Supply Chain: Recommended Practices Guide for Customers | ESF [cite:@nationalsecurityagencynsaSecuringSoftwareSupply2023] #SupplyChain #CISA #NSA #US
+- *Scope/Purpose:* Provides actionable recommendations for organisations (customers) to mitigate supply chain cybersecurity risks, focusing
+  on vendor assessments, contractual safeguards, and SBOM adoption. Targets U.S. critical infrastructure sectors.
+- *Type of Source:* White Paper (Government Guideline)
+  - Published by: CISA & NSA
+  - Audience: Procurement Officers, IT security teams.
+- *Methodology:*
+  - *Public-private collaboration:* Input from industry working groups
+  - *Threat modelling:* Based on historical incidents (e.g., SolarWinds)
+  - *Best practice synthesis:* Aligns with NIST SP 800-161, Zero Trust principles.
+- *Key Findings*
+  - Prioritises three core actions:
+    1) SBOM integration for software transparency
+    2) Vendor risk tiers (critical/high/moderate)
+    3) Continuous monitoring of third-party access
+  - Advocates for "secure by design" procurement contracts
+- *Strengths:*
+  - *Authority*: Backed by the CISA/NSA
+  - *Practicality*: Step-by-step checklist for vendor assessment
+  - *Alignment*: Explicitly maps to NIST framework for compliance
+- *Weaknesses:*
+  - *Limited Scope:* U.S.-centric; no EU/GDPR considerations
+  - *No Empirical Data:* Lacks case studies on implementation success/failure
+  - *Vendor Perspective Absent:* Focuses solely on customer responsibilities
+** Open Source Software Best Practice and Supply Chain Risk Management | UK Government [cite:@OpenSourceSoftwarea] #SupplyChain #PublicSector #UKPolicy #SBOM
+- *Scope/Purpose:*
+  - Evaluates best practices for managing open-source software (OSS) supply chain risks across organisational contexts
+  - Provides actionable recommendations for adoption, management, and community engagement, targeting business of all sizes/sectors.
+  - Commissioned by the UK Department of Science, Innovation and Technology (DSIT)
+- *Type of Source:*
+  - White Paper (Industry/Policy-Focused)
+  - Combines academic research, industry insights, and policy recommendations
+- *Methodology:*
+  1) *Literature Review:*
+     - Analysed academic papers, industry standards (e.g. NIST, OWASP), and government reports (e.g., U.S. Executive Order 14028)
+     - Searched databases: IEEE Xplore, ACM Digital Library, ScienceDirect
+  2) *Case Studies:*
+     - Examined real world incidents (e.g., Log4j, Equifax breach) and corporate examples (e.g., Microsoft, Uber)
+  3) *Interviews:*
+     - Conducted 8 semi-structured interviews with developers, CTOs, and  project managers across public/private sectors
+  4) *Tools Analysis:*
+     - Evaluated SCA tools (e.g., Synk, Sonatype) and frameworks (e.g., SLSA, SPDX) @@comment: need to look these tools and frameworks up@@
+- *Key Findings:*
+  1) *Adoption Challenges:*
+     - Lack of standardised maturity models for evaluating OSS trustworthiness
+     - 78% of code-bases contain outdated or vulnerable OSS components (2023 data)
+  2) *Management Gaps:*
+     - Smaller organisations rely on reactive, ad-hoc processes; larger firms use formal SBOMs and tooling
+     - 81% of code-bases have high/critical vulnerabilities, often from transitive dependencies
+  3) *Community Engagement:*
+     - Limited contributions due to resource constraints; financial support models (e.g., GitHub Sponsors) underutilised.
+  4) *Structural Issues:*
+     - Dominance of large tech firms in setting standards creates barriers for SMEs
+     - No consensus on trust metrics or industry-specific best practices
+- *Strengths:*
+  - *Comprehensive Coverage:* Integrates academic, industry, and policy perspectives
+  - *Actionable Recommendations:* Clear steps for SBOM adoption, tooling and policy development
+  - *Real World Relevance:* Case Studies (e.g., Log4j, SolarWinds) contextualises risks
+  - *Sector-Neutral:* Applicable to healthcare, finance, education, and public sectors
+- *Weaknesses:*
+  - *Qualitative Bias:* Relies heavily on expert interviews and case studies; lacks quantitative data
+  - *Tool Promotion:* Mentions proprietary tools (e.g., Black Duck, Synk) without critical evaluation
+  - *Implementation Gaps:* Limited guidance on resourcing for SMEs or measuring policy effectiveness
+  - *Geographic Focus:* Primarily UK-centric; limited discussion of EU/North American regulatory 
+** Improving the Nation’s Cybersecurity, Federal Register | U.S. Executive Order 14028 [cite:@ImprovingNationsCybersecurity2021] #USPolicy #ZeroTrust #SBOM #FederalDirective
+- *Scope/Purpose:*
+  - Mandates federal cybersecurity modernisation, including adoption of **Zero Trust Architecture**, **SBOMs**, and enhanced incident reporting
+  - Targets federal agencies, contractors, and critical infrastructure to mitigate supply chain risks (e.g., SolarWinds)
+  - Establishes deadlines for agencies to implement multi-factor authentication, encryption, and cloud security standards
+- *Type of Source:*
+  - Presidential Executive Order (Policy Directive)
+- *Methodology:*
+  - *Policy-driven mandates* with strict timelines (e.g., 60-360 days for agency compliance)
+- *Key Sections:*
+  |---------+------------------------------------------+------------------------------------------------------------------------------------|
+  | Section | Focus                                    | Key Actions                                                                        |
+  |---------+------------------------------------------+------------------------------------------------------------------------------------|
+  | Sec. 2  | Threat information sharing               | Updates to the FAR contract for IT/OT providers                                    |
+  |---------+------------------------------------------+------------------------------------------------------------------------------------|
+  | Sec. 3  | Federal cybersecurity modernisation      | Mandates Zero Trust Architecture, cloud migration, and multi-factor authentication |
+  |---------+------------------------------------------+------------------------------------------------------------------------------------|
+  | Sec. 4  | Enhancing software supply chain security | Require SBOM for federal software, defines "critical software"                     |
+  |---------+------------------------------------------+------------------------------------------------------------------------------------|
+  | Sec. 5  | Cyber safety review board                | Creates a board to review significant incidents (e.g., SolarWinds)                 |
+  |---------+------------------------------------------+------------------------------------------------------------------------------------|
+- *Key Findings:*
+  1) *SBOM Adoption:* Requires vendors to provide SBOMs for federal software (Sec. 4)
+  2) *Zero Trust:* Agencies must develop Zero Trust plans (Sec. 3(b)(ii))
+  3) *Incident Reporting:*  Mandate 3-day reporting for severe cyber incidents (Sec. 2(g)(i)(D))
+  4) *Cloud Security:* Modernises FedRAMP (Federal Risk and Authorisation Management Program) and mandates encryption for federal cloud systems (Sec. 3)
+- *Strengths:*
+  - *Comprehensive:* Covers IT/OT systems, cloud migration, and legacy software
+  - *Actionable:* Clear deadlines (e.g., 180 days for multi-factor auth)
+  - *Influence:* Catalysed NIST SP 800-218, CISA guidance, and DoD Zero Trust strategies
+- *Weaknesses:*
+  - *U.S.-Centric:* Limited guidance for global compliance (e.g., GDPR alignment)
+  - *Resource Demands:* Challenging for small agencies/contractors to meet timelines
+  - *Vague Technical Details:* Relies on follow-up frameworks (e.g., NIST SP 800-161) for technical implementation
+** Secure Software Development Framework (SSDF) Version 1.1 | NIST SP 800-218 [cite:@souppayaSecureSoftwareDevelopment2022] #USPolicy #SBOM #ComplianceWithOrder14028 #ZeroTrust
+- *Scope/Purpose:*
+  - Provides federal agencies, contractors, and software developers with standardised practices to reduce software vulnerabilities and secure the software
+    supply chain
+  - Directly supports compliance with Executive Order 14028, focusing on mitigating risks like SolarWinds-style supply chain attacks
+  - Targets secure software development lifecycle (SSDLC) adoption, SBOM generation, and artefact integrity
+- *Type of Source:*
+  - NIST Special Publication (Policy Guideline)
+- *Methodology:*
+  - *Policy-driven recommendations* organised into four pillars (Prepare, Protect, Produce, Respond)
+  - *Voluntary Adoption* but tied to federal procurement mandates under EO 14028
+- *Key Sections:*
+    |--------------+--------------------------------+-------------------------------------------------------------------------------------------|
+    | Section      | Focus                          | Key Actions                                                                               |
+    |--------------+--------------------------------+-------------------------------------------------------------------------------------------|
+    | PO (Prepare) | Organisational Readiness       | Establish governance, training, and policies for secure development                       |
+    | PS (Protect) | Secure design and architecture | Implement threat modelling, secure coding standards, and code signing                     |
+    | PW (Produce) | Secure development practices   | Use automated tools for static/dynamic analysis, code reviews, and vulnerability scanning |
+    | RV (Respond) | Vulnerability management       | Develop incident response plans, patch management workflow, and SBOM maintenance          |
+    |--------------+--------------------------------+-------------------------------------------------------------------------------------------|
+- *Key Findings:*
+  1) *SBOM Adoption:* Mandates SBOM for federal software to track components and dependencies (aligned with NTIA SBOM standards)
+  2) *Automated Tooling:* Requires integration of automated security testing (e.g. SAST/DAST) into CI/CD pipelines
+  3) *Artefact Integrity:* Recommends cryptographic signing (e.g. Sigstore) for code authenticity
+  4) *Framework Alignment:* Maps SSDF practices to NIST CSF, OWASP SAMM, and ISO/IEC 27034 among others.
+  5) *Open Source Gaps:* Lacks guidance for managing SBOMs in open-source ecosystems with transient dependencies
+- *Strengths:*
+  - *Role Clarity:* Explicitly defines responsibilities for developers, acquirers, and operators
+  - *Procurement Focus:* Empowers acquirers to demand transparency (e.g. SBOM) during vendor selection
+  - *Future Roadmap:* Acknowledges gaps (e.g. acquirer specific use cases, OSS and ), but delays actionable guidance to future work.
+  - *Evidence-Based Foundation:* Synthesises and aligns with industry-validated frameworks (e.g., OWASP SAMM, BSIMM, ISO/IEC 27034) through
+    a literature review of secure development practices this ensures:
+    - *Reduced Redundancy:* Organisations can adopt SSDF without abandoning prior investments in existing standards
+    - *Credibility:* Recommendations are grounded in peer-reviewed methodologies, not theoretical constructs
+    - *Interoperability:* Explicit mapping to NIST CSF and SLSA simplifying compliance in multi-framework environments
+- *Weaknesses:*
+  - *High-Level, Outcome-Focused Guidance:* Provides high level guidance focusing on outcomes of the practices to be implemented, lacks
+     step-by-step implementation details for specific use-cases i.e., DevOps.
+  - *Assumes Expertise:* Presumes organisations already have mature DevSecOps teams, disadvantaging smaller entities.
+* Papers relating to SolarWinds attack
+** Solar Winds Hack: In-Depth Analysis and Countermeasures (2021) | Alkhadra, Abuzaid & AlShammari et al [cite:@alkhadraSolarWindsHack2021] #SolarWindsAttack
+- *Scope/Purpose:*
+  - /Objective:/ Analyse the SolarWinds supply chain attack (2020), its mechanisms, impacts and preventive measures
+  - /Audience:/ Cybersecurity professionals, policymakers, and organisations seeking to mitigate supply chain risks
+  - /Key Themes:/
+    - Technical and operational vulnerabilities in software supply chain
+    - Financial and reputational consequences of large-scale breaches.
+    - Regulatory frameworks (e.g., NERC CIP, NIST) for attack prevention
+- *Type of Source:*
+  - Peer-Reviewed Conference Paper (IEEE)
+- *Methodology:*
+  - /Literature Review:/ Synthesising technical reports (CISA, FireEye), government disclosures, and industry analyses
+  - /Case Study Analysis:/ Examines the SolarWinds attack timeline, tactics, and sector-specific impacts
+  - /Qualitative Recommendations:/ Proposes countermeasures based on existing standards (e.g., NIST, NERC CIP)
+- *Key Sections:*
+  | Section               | Focus                        | Key Details                                                                                   |
+  |-----------------------+------------------------------+-----------------------------------------------------------------------------------------------|
+  | *Supply Chain Attack* | Mechanisms and risks         | Explains how attackers exploit third-party vendors, evade detection, and inject malware       |
+  | *SolarWinds Timeline* | Chronology of the breach     | Details seven critical events, from initial infiltration (2019) to public disclosure (2020)   |
+  | *Impact Analysis*     | Sector-specific consequences | Lists compromised federal agencies (e.g., DoD, DoE) and private firms (e.g., Microsoft, Cisco |
+  | *Cost Evaluations*    | Financial ramifications      | Estimates breach costs across sources (90Mforclientindemnity,100B for system recovery).       |
+  | *Counter Measures*    | Preventive strategies        | Advocates for NERC CIP standards, SBOM adoption, and network segmentation                     |
+  |-----------------------+------------------------------+-----------------------------------------------------------------------------------------------|
+- *Key Findings:*
+  1) /Attack Mechanism:/
+     - Exploited SolarWinds' Orion software update process to distribute SUNBURST malware, bypassing traditional security tools
+  2) /Supply Chain Vulnerabilities:/
+     - Highlights the risk in third-party dependencies, inadequate vendor audits, and lack of network segmentation
+  3) /Regulatory Gaps:/
+     - Emphasised non-compliance with NERC CIP standards
+  4) /Financial Impact:/
+     - Total costs ranged from 20M (cybersecurity upgrades) to 100B (system recovery), underscoring systemic risks.
+- *Strengths:*
+  - /Comprehensive Coverage:/ Integrates technical, financial, and regulatory perspectives
+  - /Practical Recommendations:/ Links countermeasures to established frameworks (e.g., NIST, NERC, NERC CIP)
+  - /Timely Analysis:/ Addresses lessons from a landmark cyberattack with global implications
+- *Weaknesses:*
+  - /Limited Technical Depth:/ Lacks granular malware analysis (e.g. SUNBURST code structure)
+  - /Over-Reliance on Secondary Data:/ Primarily synthesises existing reports without original forensic research
+  - /Generic Countermeasures:/ Recommendations (e.g., "adopts SBOMs") lack implementation guidelines for SMEs
+** On SolarWinds Orion Platform Security Breach (2021) | Sterle & Bhunia [cite:@sterleSolarWindsOrionPlatform2021] #SolarWinds
+- *Scope/Purpose:*
+  - /Objective:/ Analyse the SolarWinds Orion breach (2020), including its technical execution, global impacts, and remediation strategies
+  - /Audience:/ Cybersecurity professionals, policymakers, and organisations managing supply chain risks
+  - /Key Theme:/
+    - Supply chain attack mechanics (e.g., SUNBURST malware, build process exploitation)
+    - Financial and reputational consequences for SolarWind and affected entities
+    - Policy and technical countermeasures (e.g., hotfixes, federal coordination)
+- *Type of Source:*
+  - Peer-Reviewed Conference Paper (IEEE)
+- *Methodology:*
+  - /Case Study Analysis:/ Examines the breach timeline, attackers methodologies (e.g., credential theft, code injection), and SolarWinds' response
+  - /Literature Review:/ Synthesises technical reports (CISA, SolarWinds SEC filings), news articles, and industry analyses
+  - /Policy Evaluation:/ Discusses regulatory gaps and proposes federal disclosure laws for breach reporting
+- *Key Sections:*
+  | Section           | Focus                                | Key Details                                                                                                                               |
+  |-------------------+--------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------|
+  | SolarWinds Breach | Technical execution                  | Explains how attackers stole credentials, injected SUNBURST malware during Orion's build process, and evaded detection                    |
+  | Global Impact     | Sector-specific consequences         | Details compromised federal agencies (e.g., DoD, Treasury) and risks to individuals (e.g., medical device tampering)                      |
+  | Defence measures  | Remediation actions                  | Lists SolarWinds' hot-fixes (e.g., code-signing updates), kill-switch implementation, and federal coordination (Unified Coordination Group |
+  | Future Solutions  | Policy and technical recommendations | Advocates for proactive cybersecurity strategies, federal breach disclosure laws, and network rebuilding                                  |
+  |-------------------+--------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------|
+- *Key Findings:*
+  1) Attack Sophistication:
+     - SUNBURST malware was inserted during Orion's build process process, leveraging stolen credentials and mimicking legitimate network traffic to evade detection
+  2) Delayed Detection:
+     - Attackers operated undetected for 9+ months, highlighting gaps in monitoring privileged access and code integrity checks
+  3) Financial Fallout:
+     - SolarWinds' stock fell 25% post-disclosure, with lawsuits alleging misleading cybersecurity practices
+  4) Policy Implications:
+     - Calls for a shift from reactive to proactive defense (e.g., Zero Trust, federal breach reporting mandates)
+- *Strengths:*
+  - /Technical Depth:/ Provides granular details on attack vectors (e.g., reverse-engineered network protocols, SolarWinds.Orion.BusinessLayer.dll exploitation)
+  - /Holistic Impact Analysis:/ Covers individual risks (e.g., medical device compromise), corporate financial losses, and industry-wide shifts towards prevention
+  - /Actionable Remediation:/ Lists specific hot-fixes (e.g., SHA1 certificate deprecation) and kill-switch mechanisms
+- *Weaknesses:*
+  - /Limited Original Research:/ Relies heavily on secondary sources (e.g., news articles, SEC filings) without novel forensic analysis
+  - /Narrow Regulatory Scope:/ Focuses on U.S. federal responses without addressing global standards (e.g., EU Cyber Resilience Act)
+  - /Vague Future Solutions:/ Recommendations like "rebuild networks" lacks practical implementation guidance for resource-constrained organisations
+** Software Supply Chain Attacks, a Threat to Global Cybersecurity: SolarWinds’ Case Study | IIETA [cite:@SoftwareSupplyChain] #SolarWinds
+- *Scope/Purpose:*
+  - /Objective:/ Analyse software supply chain attacks using the SolarWinds breach as a case study, emphasising risks from third-party code reuse and
+    processing mitigation strategies (e.g., SBOM, Zero Trust)
+  - /Audience:/ Cybersecurity professionals, policymakers, and organisations managing software supply chain risks
+  - Key Themes
+    - Vulnerabilities in open-source and third-party code dependencies
+    - Defence mechanisms: SBOM, MFA, Zero Trust, and DevSecOps
+    - Future technologies (Machine learning, Blockchain) for risk mitigation
+- *Type of Source*
+  - Peer-Reviewed Journal Article (International Journal of Safety and Security Engineering)
+- *Methodology:*
+  - Systematic Literature Review (SLR): Analyses 34 sources from Scopus, ScienceDirect, IEEE, and cybersecurity reports (2018-2021)
+  - Case Study Framework: Applies the Cyber Kill Chain model to dissect the SolarWinds attack stages (reconnaissance to command-and-control)
+  - Qualitative Recommendations: Proposes SBOM adoption, MFA, and Zero Trust based on NIST SP 800-161 and CISA guidelines
+- *Key Sections:*
+  | Section             | Focus                          | Key Details                                                                |
+  |---------------------+--------------------------------+----------------------------------------------------------------------------|
+  | Attack techniques   | Common supply chain attack     | Details hijacking updates, code-signing bypass, and open-source compromise |
+  | SolarWinds Timeline | Chronology of the breach       | Maps attack phases (March 2019-December 2020) using the Cyber Kill Chain   |
+  | Defence Measures    | Proactive strategies           | Advocates SBOMs, Zero Trust, MFA, and SOC/SIEM/SOAR integration            |
+  | Recent Case Studies | Colonial Pipeline, JBS, Kaseya | Compares SolarWinds to other supply chain attacks for broader context      |
+  |---------------------+--------------------------------+----------------------------------------------------------------------------|
+- *Key Findings:*
+  1) Code Reuse Risks: 85-97% of software code comes from third-party/open-source components, creating systematic vulnerabilities
+  2) Attack Sophistication: SolarWinds attackers used stolen credentials, code injection during builds, and mimicry of network traffic to evade detection
+  3) Policy Recommendations: Calls for federal SBOM mandates and alignment with NIST SP 800-161 for supply chain management
+  4) Future Solutions: Suggests Machine Learning for anomaly detection and Blockchain for code integrity
+- *Strengths:*
+  - Comprehensive SLR: Synthesises academic, governmental, and industry sources for a holistic view
+  - Practical Framework: Applies the Cyber Kill Chain to SolarWinds, enhancing tactical understanding
+  - Policy-Technical Bridge: Links SBOM adoption to federal initiatives (e.g., EO 14028) and DevSecOps practices
+  - Broad Relevance: Discusses recent attacks (Colonial Pipelines, Kaseya) to contextualise supply chain attacks
+- *Weaknesses:*
+  - Lack of Original Data: Relies on existing reporting without new forensics or empirical analysis
+  - Implementation Gaps: Recommendations (e.g., Blockchain) lack technical or operational guidance
+  - U.S.-Centric Focus: Minimal discussion of global regulations (e.g, EU Cyber Resilience Act)
+  - Speculative Futures: Machine Learning/Blockchain solutions are proposed without case studies or validations
+
